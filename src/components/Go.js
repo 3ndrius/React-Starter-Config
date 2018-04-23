@@ -32,7 +32,10 @@ class Go extends Component {
     var todos = this.state.todos;
     todos = todos.map(function(item, index){
       return(
-        <li> {item}</li>
+
+        <ToDoItem item={item} key = {index} />
+
+        // <li> {item}</li>
       );
     });
     return (
@@ -52,7 +55,20 @@ class Go extends Component {
   }
 
   
-}
+};
+
+// class TodoItem extends React.Component{
+
+//   render(){
+//       return(
+//           <li>
+//               <div className="todo-item">
+//                   <span className="item-name">{this.props.item}</span>
+//               </div>
+//           </li>
+//       );
+//   }
+// };
 
 
 
