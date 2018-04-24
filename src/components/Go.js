@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class Go extends Component {
 
   constructor(props) {
@@ -17,25 +15,23 @@ class Go extends Component {
       });
     }, 3000);
 
+    setTimeout(() => {
+      this.setState( {
+        age:44
+      });
+    }, 5000);
    }
-
    tick() {
     this.setState({
       age: this.state.age +3
     });
   }
-
- 
-
   render() {
-
     var todos = this.state.todos;
     todos = todos.map(function(item, index){
       return(
 
-        <ToDoItem item={item} key = {index} />
-
-        // <li> {item}</li>
+          <li> {item}</li>
       );
     });
     return (
@@ -43,34 +39,15 @@ class Go extends Component {
         <h2> {this.state.age} </h2>
         <h4> {this.state.status} </h4>
         
-            {/* <h2> { this.state.todos[0]} </h2> 
+            <h2> { this.state.todos[0]} </h2> 
             <h2> { this.state.todos[1]} </h2> 
-            <h2> { this.state.todos[2]} </h2>  */}
+            <h2> { this.state.todos[2]} </h2> 
             <ul> {todos} </ul>
 
             <button onClick={() => this.tick() } > Make me older </button> 
       
       </div>
     );
-  }
-
-  
+  }  
 };
-
-// class TodoItem extends React.Component{
-
-//   render(){
-//       return(
-//           <li>
-//               <div className="todo-item">
-//                   <span className="item-name">{this.props.item}</span>
-//               </div>
-//           </li>
-//       );
-//   }
-// };
-
-
-
-
 export default Go;
