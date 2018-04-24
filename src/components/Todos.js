@@ -8,13 +8,13 @@ class Todos extends Component {
     this.state = {
       todos:['drive a car', "ride a bike", "running", "reading"],
     };
-    
+    this.onDelete = this.onDelete.bind(this);
    }
     render() {
     var todos = this.state.todos;
     todos = todos.map(function(item, index){
       return(
-        <Todo item={item} key={index} />
+        <Todo item={item} key={index} onDelete={this.onDelete }/>
           
       );
     });
@@ -30,11 +30,20 @@ class Todos extends Component {
     );
   }// render  
 
+  onDelete(item) {
+    var updatedTodos = this.state.todos.filter(function(val,index) {
+      return item !==val;
+    });
+    this.setState({
+      todos:updatedTodos
+    });
+  }
+
 
   //own function 
   clicked() {
     console.log("Clicked ! ");
-  }
+  }//end function
 };
 export default Todos;
 
