@@ -20,15 +20,21 @@ class Todos extends Component {
     });
     return (
       <div>
-            
-           
+
+           <h2 onClick={this.clicked} > Title to click </h2>           
             <ul> {todos} </ul>
 
           
       
       </div>
     );
-  }  
+  }// render  
+
+
+  //own function 
+  clicked() {
+    console.log("Clicked ! ");
+  }
 };
 export default Todos;
 

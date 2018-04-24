@@ -9,6 +9,7 @@ class Todo extends Component {
             <li> 
                 <div className="todo-item">
                     <span className="item-name"> {this.props.item} </span>
+                    <span className="item-delete" onClick={this.handleDelete}> </span> 
                 </div>
             </li>
         );
