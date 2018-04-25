@@ -4,8 +4,12 @@ import React, { Component } from 'react';
 class Todo extends Component {
 
     constructor(props){
-        super(props)
-        this.handleDelete = this.handleDelete.bind(this);
+        super(props);
+        this.delete = this.delete.bind(this);
+      };
+      delete()
+      {
+             this.props.handleDelete(this.props.name);
       }
 
     render() {
@@ -14,26 +18,14 @@ class Todo extends Component {
             <li> 
                 <div className="todo-item">
                     <span className="item-name"> {this.props.item} </span>
-                    <span className="item-delete" onClick={this.handleDelete}> X </span> 
+                    <span className="item-delete"> X </span> 
                 </div>
             </li>
         );
     }
  
-    //own function
-
-
+    //own function     
      
-    onDelete(item) {
-        var updatedTodos = this.state.todos.filter(function(val,index) {
-          return item !==val;
-        });
-        this.setState({
-          todos:updatedTodos
-        });
-      }
-
-    
 }
 
 export default Todo;

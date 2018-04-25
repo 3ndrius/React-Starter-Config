@@ -3,21 +3,26 @@ import Todo from './Todo';
 
 class Todos extends Component {
 
+  
   constructor(props) {
     super(props);
+    this.onHandleDelete = this.onHandleDelete.bind(this);
     this.state = {
       todos:['drive a car', "ride a bike", "running", "reading"],
     };
-    this.onDelete = this.onDelete.bind(this);
-   }
+    
+   }//end constructor
+
+  
+   
     render() {
     var todos = this.state.todos;
     todos = todos.map(function(item, index){
       return(
-        <Todo item={item} key={index} onDelete={this.onDelete }/>
+        <Todo item={item} key={index} HandleDelete={this.onHandleDelete}/>
           
       );
-    });
+    }.bind(this));
     return (
       <div>
 
@@ -29,8 +34,12 @@ class Todos extends Component {
       </div>
     );
   }// render  
+  onDelete() {
+    console.log("clicked now");
+  }
 
-  onDelete(item) {
+  
+ onHandleDelete(item) {
     var updatedTodos = this.state.todos.filter(function(val,index) {
       return item !==val;
     });
@@ -39,11 +48,13 @@ class Todos extends Component {
     });
   }
 
-
+// 
   //own function 
   clicked() {
     console.log("Clicked ! ");
   }//end function
+
+
 };
 export default Todos;
 
