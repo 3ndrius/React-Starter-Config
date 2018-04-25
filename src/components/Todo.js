@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
 
-class Todo extends Component {
+// class Todo extends Component {
 
-    constructor(props){
-        super(props);
+//     constructor(props){
+//         super(props);
       
-      };
+//       };
      
 
-    render() {
+//     render() {
 
-        return(
+//         return(
             
-        );
-    }
+//         );
+//     }
  
-    //own function     
+//     //own function     
      
-}
+// }
 
-export default Todo;
+// export default Todo;
