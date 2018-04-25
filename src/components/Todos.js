@@ -1,59 +1,29 @@
 import React, { Component } from 'react';
-import Todo from './Todo';
+// import Todo from './Todo';
 
 class Todos extends Component {
 
-  
-  constructor(props) {
-    super(props);
-    this.onHandleDelete = this.onHandleDelete.bind(this);
+  constructor() {
+    super();
     this.state = {
-      todos:['drive a car', "ride a bike", "running", "reading"],
+      todos: ['walk', 'run', 'sprint'],
+      currentTodo: ""
     };
-    
-   }//end constructor
+  }
 
-  
-   
-    render() {
-    var todos = this.state.todos;
-    todos = todos.map(function(item, index){
-      return(
-        <Todo item={item} key={index} HandleDelete={this.onHandleDelete}/>
-          
-      );
-    }.bind(this));
+
+  render() {
     return (
-      <div>
+      <div> 
 
-           <h2 onClick={this.clicked} > Title to click </h2>           
-            <ul> {todos} </ul>
+        <input placeholder="Enter todo" value={ this.state.currentTodo } />
+        <button> Add </button>
+        <br/>
+        {this.state.todos.length === 0 ? "Not todos yet" : "You have some todos "}
 
-          
-      
       </div>
     );
-  }// render  
-  onDelete() {
-    console.log("clicked now");
   }
-
-  
- onHandleDelete(item) {
-    var updatedTodos = this.state.todos.filter(function(val,index) {
-      return item !==val;
-    });
-    this.setState({
-      todos:updatedTodos
-    });
-  }
-
-// 
-  //own function 
-  clicked() {
-    console.log("Clicked ! ");
-  }//end function
-
 
 };
 export default Todos;
