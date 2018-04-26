@@ -1,1 +1,1 @@
-# React02
+# React Starter Config file
